@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<h2>Edit Siswa (NISN: <%= siswa.nisn %>)</h2>
+<form action="/siswa/edit/<%= siswa.nisn %>?_method=PUT" method="post">
+  <div><label>Nama</label><input name="nama" value="<%= siswa.nama %>" disabled /></div>
+  <div><label>NISN</label><input name="nisn" value="<%= siswa.nisn %>" disabled /></div>
+
+  <div><label>Tingkat</label>
+    <select name="tingkat" required>
+      <option value="X" <%= siswa.ngkat==='X'?'selected':'' %>>X</option>
+      <option value="XI" <%= siswa.ngkat==='XI'?'selected':'' %>>XI</option>
+      <option value="XII" <%= siswa.ngkat==='XII'?'selected':'' %>>XII</option>
+    </select>
+  </div>
+
+  <div><label>Rombel</label>
+    <select name="rombel" required>
+      <option value="PPLG 1" <%= siswa.rombel==='PPLG 1'?'selected':'' %>>PPLG 1</option>
+      <option value="PPLG 2" <%= siswa.rombel==='PPLG 2'?'selected':'' %>>PPLG 2</option>
+      <option value="RPL 1" <%= siswa.rombel==='RPL 1'?'selected':'' %>>RPL 1</option>
+      <option value="RPL 2" <%= siswa.rombel==='RPL 2'?'selected':'' %>>RPL 2</option>
+    </select>
+  </div>
+
+  <div><label>Tgl Masuk</label>
+    <input type="date" name="tgl_masuk" value="<%= (siswa.tgl_masuk? siswa.tgl_masuk.toISOString().slice(0,10) : '') %>" max="<%= new Date().toISOString().slice(0,10) %>" required />
+  </div>
+
+  <div><label>Terdaftar</label>
+    <select name="terdaftar" required>
+      <option value="Siswa Baru" <%= siswa.terdaftar==='Siswa Baru'?'selected':'' %>>Siswa Baru</option>
+      <option value="Pindahan" <%= siswa.terdaftar==='Pindahan'?'selected':'' %>>Pindahan</option>
+    </select>
+  </div>
+
+  <button type="submit">Update</button>
+</form>
+</main></body></html>

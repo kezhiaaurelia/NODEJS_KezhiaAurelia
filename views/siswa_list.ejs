@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+<h2>Daftar Siswa</h2>
+<a href="/siswa/tambah">Tambah Siswa</a>
+<table border="1" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Nama</th><th>JK</th><th>NISN</th><th>NIK</th><th>Tingkat</th><th>Rombel</th><th>Tgl Masuk</th><th>Terdaftar</th><th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% siswas.forEach(s => { %>
+      <tr>
+        <td><%= s.nama %></td>
+        <td><%= s.jk %></td>
+        <td><%= s.nisn %></td>
+        <td><%= s.nik %></td>
+        <td><%= s.tingkat %></td>
+        <td><%= s.rombel %></td>
+        <td><%= (s.tgl_masuk ? s.tgl_masuk.toISOString().slice(0,10) : '') %></td>
+        <td><%= s.terdaftar %></td>
+        <td>
+          <a href="/siswa/edit/<%= s.nisn %>">Edit</a>
+          <form method="POST" action="/siswa/delete/<%= s.nisn %>?_method=DELETE" style="display:inline">
+            <button onclick="return confirm('Hapus data?')">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+</main></body></html>
