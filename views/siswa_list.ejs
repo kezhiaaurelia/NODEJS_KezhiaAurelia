@@ -4,7 +4,16 @@
 <table border="1" cellpadding="6">
   <thead>
     <tr>
-      <th>Nama</th><th>JK</th><th>NISN</th><th>NIK</th><th>Tingkat</th><th>Rombel</th><th>Tgl Masuk</th><th>Terdaftar</th><th>Aksi</th>
+      <th>Nama</th>
+      <th>JK</th>
+      <th>NISN</th>
+      <th>NIK</th>
+      <th>TTL</th> <!-- Tambahan -->
+      <th>Tingkat</th>
+      <th>Rombel</th>
+      <th>Tgl Masuk</th>
+      <th>Terdaftar</th>
+      <th>Aksi</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +23,7 @@
         <td><%= s.jk %></td>
         <td><%= s.nisn %></td>
         <td><%= s.nik %></td>
+        <td><%= s.ttl %></td>
         <td><%= s.tingkat %></td>
         <td><%= s.rombel %></td>
         <td><%= (s.tgl_masuk ? s.tgl_masuk.toISOString().slice(0,10) : '') %></td>

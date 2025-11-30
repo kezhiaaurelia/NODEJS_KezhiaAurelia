@@ -1,4 +1,3 @@
-// models/Siswa.js
 const mongoose = require('mongoose');
 
 const SiswaSchema = new mongoose.Schema({
@@ -9,21 +8,21 @@ const SiswaSchema = new mongoose.Schema({
   nokk: { type: String, required: true },
   tingkat: { type: String, enum: ['X','XI','XII'], required: true },
   rombel: { type: String, enum: ['PPLG 1','PPLG 2','RPL 1','RPL 2'], required: true },
+  ttl: {type: String,required: true},
   tgl_masuk: { type: Date, required: true },
   terdaftar: { type: String, enum: ['Siswa Baru','Pindahan'], required: true }
 }, { timestamps: true });
 
-// validations on nisn & nik length, and tgl_masuk max date
 SiswaSchema.path('nisn').validate(function(value) {
-  return /^\d{10}$/.test(value); // 10 digits
+  return /^\d{10}$/.test(value); // 10 digit
 }, 'NISN harus 10 digit angka');
 
 SiswaSchema.path('nik').validate(function(value) {
-  return /^\d{16}$/.test(value); // 16 digits
+  return /^\d{16}$/.test(value); // 16 digit
 }, 'NIK harus 16 digit angka');
 
 SiswaSchema.path('tgl_masuk').validate(function(value) {
-  // maksimal hari ini (server time)
+  // maksimal hari ini
   if(!value) return false;
   const today = new Date();
   today.setHours(23,59,59,999);

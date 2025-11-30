@@ -1,71 +1,76 @@
 <%- include('partials/header') %>
-<h2>Tambah Siswa</h2>
-<form action="/siswa/tambah" method="post">
-  <div>
-    <label>Nama</label>
-    <input name="nama" required />
-  </div>
+  <h2>Tambah Siswa</h2>
+  <form action="/siswa/tambah" method="post">
+    <div>
+      <label>Nama</label>
+      <input name="nama" required />
+    </div>
 
-  <div>
-    <label>JK</label>
-    <select name="jk" required>
-      <option value="L">L</option>
-      <option value="P">P</option>
-    </select>
-  </div>
+    <div>
+      <label>Jenis Kelamin</label>
+      <select name="jk" required>
+        <option value="L">L</option>
+        <option value="P">P</option>
+      </select>
+    </div>
 
-  <div>
-    <label>NISN (10 digit)</label>
-    <input name="nisn" minlength="10" maxlength="10" required />
-  </div>
+    <div>
+      <label>NISN (10 digit)</label>
+      <input name="nisn" minlength="10" maxlength="10" required />
+    </div>
 
-  <div>
-    <label>NIK (16 digit)</label>
-    <input name="nik" minlength="16" maxlength="16" required />
-  </div>
+    <div>
+      <label>NIK (16 digit)</label>
+      <input name="nik" minlength="16" maxlength="16" required />
+    </div>
 
-  <div>
-    <label>No KK</label>
-    <input name="nokk" required />
-  </div>
+    <div>
+      <label>No KK</label>
+      <input name="nokk" required />
+    </div>
 
-  <div>
-    <label>Tempat Lahir (TL)</label>
-    <input name="tl" required />
-  </div>
+    <div>
+      <label>TTL</label>
+      <input name="ttl" required />
+    </div>
 
-  <div>
-    <label>Tingkat</label>
-    <select name="tingkat" required>
-      <option>X</option>
-      <option>XI</option>
-      <option>XII</option>
-    </select>
-  </div>
 
-  <div>
-    <label>Rombel</label>
-    <select name="rombel" required>
-      <option>PPLG 1</option>
-      <option>PPLG 2</option>
-      <option>RPL 1</option>
-      <option>RPL 2</option>
-    </select>
-  </div>
 
-  <div>
-    <label>Tgl Masuk</label>
-    <input type="date" name="tgl_masuk" max="<%= new Date().toISOString().slice(0,10) %>" required />
-  </div>
+    <div>
+      <label>Tingkat</label>
+      <select name="tingkat" required>
+        <option>X</option>
+        <option>XI</option>
+        <option>XII</option>
+      </select>
+    </div>
 
-  <div>
-    <label>Terdaftar</label>
-    <select name="terdaftar" required>
-      <option>Siswa Baru</option>
-      <option>Pindahan</option>
-    </select>
-  </div>
+    <div>
+      <label>Rombel</label>
+      <select name="rombel" required>
+        <option>PPLG 1</option>
+        <option>PPLG 2</option>
+        <option>RPL 1</option>
+        <option>RPL 2</option>
+      </select>
+    </div>
 
-  <button type="submit">Simpan</button>
-</form>
-</main></body></html>
+    <div>
+      <label>Tgl Masuk</label>
+      <input type="date" name="tgl_masuk" max="<%= new Date().toISOString().slice(0,10) %>" required />
+    </div>
+
+    <div>
+      <label>Terdaftar</label>
+      <select name="terdaftar" required>
+        <option>Siswa Baru</option>
+        <option>Pindahan</option>
+      </select>
+    </div>
+
+    <button type="submit">Simpan</button>
+  </form>
+  </main>
+  </body>
+
+  </html>

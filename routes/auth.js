@@ -1,10 +1,8 @@
-// routes/auth.js
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
-// helper: ensure auth
 function ensureAuth(req, res, next){
   if(req.session.user) return next();
   req.flash('error_msg','Login required');

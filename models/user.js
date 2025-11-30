@@ -1,4 +1,3 @@
-// models/User.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -7,7 +6,6 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true }
 });
 
-// method to compare password
 UserSchema.methods.comparePassword = function(plain) {
   return bcrypt.compareSync(plain, this.password);
 };
